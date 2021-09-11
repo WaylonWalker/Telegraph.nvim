@@ -63,6 +63,7 @@ M.telegraph= function(config)
             :gsub("{current_session_name}", current_session_name)
             :gsub("{cword}", vim.fn.expand"<cword>")
             :gsub("{cWORD}", vim.fn.expand"<cWORD>")
+            :gsub("{cwd}", vim.fn.getcwd())
             )
     end
 

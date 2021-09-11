@@ -24,33 +24,48 @@ Plug waylonwalker/Telegraph.nvim
 Man Page Searcher
 
 ``` vim
+" Using :term
 nnoremap <leader><leader>m :Telegraph man
+" Using a tmux popup
+noremap <leader><leader>M :lua require'telegraph'.telegraph({how='tmux_popup', cmd='man '})<Left><Left><Left>
 ```
 
 lookatme slides
 
 ```
-nnoremap <leader><leader>S :Telegraph lua require'telegraph'.telegraph({cmd='pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark', how='tmux_popup'})")
+" lookatme in a terminal
 nnoremap <leader><leader>s :Telegraph pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark<cr>
+" lookatme in a tmux popup
+nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark', how='tmux_popup'})<CR>
 ```
 
 ## how
 
+Telegraph 
 
-* **term**(default)
+* **term**(default) runs command in the built in terminal
 * **tmux** runs command in a new tmux session and joins it.
 * **tmux_popup** runs command in a tmux popup window.
 * **tmux_popup_session** runs command in a tmux session and displays it in a popup
 
 ## format strings
 
-Telegraph will replace
-
+Telegraph will replace the following variables enclosed in braces.
 
 * cword
 * cWORD
 * filepath
 * filename
 * parent
+* current_session_name
+* cwd
+
+
+```
+:Telegraph ls {parent}
+:Telegraph cat {filename}
+:Telegraph man {cword}
+:Telegraph vd {cWORD}
+```
 
 
