@@ -6,19 +6,6 @@
 --                  |___/          |_|.nvim
 -- Waylon Walker
 -- 
--- ## Example usage
---
--- ``` vim
--- nnoremap <leader><leader>m :TelegraphTmuxPopup man
--- nnoremap <leader><leader>S :TelegraphTmuxPopup pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark<cr>
--- nnoremap <leader><leader>s :TelegraphTmux pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark<cr>
--- ```
---
--- ## Todo
---
--- Make Base command take arguments rather than having 3 different ones.  This
--- could get even worse if we start adding things like tmux window, or new
--- terminal
 
 local M = {}
 local api = vim.api
@@ -29,13 +16,14 @@ M.get_session_name = function()
 end
 
 default_config = {
-    cmd = "pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark",
+    cmd = "",
     session_name = '{current_session_name}-{filename}',
     how = 'term'
 }
 
 TelegraphConfig = TelegraphConfig or default_config
 
+-- vendored from plenary
 sep = (function()
   if jit then
     local os = string.lower(jit.os)
@@ -49,6 +37,7 @@ sep = (function()
   end
 end)()
 
+-- vendored from plenary
 local _get_parent = (function()
   local formatted = string.format("^(.+)%s[^%s]+", sep, sep)
   return function(abs_path)
@@ -99,23 +88,7 @@ M.telegraph= function(config)
 
 end
 
-M.parse = function(line, line2, args, qargs, count)
-    print(vim.inspect(line))
-    print(vim.inspect(line2))
-    print(vim.inspect(args))
-    print(vim.inspect(qargs))
-    print(vim.inspect(count))
-end
-
-vim.cmd("command! -nargs=1 Telegraph lua require'waylonwalker.slides'.telegraph({cmd=<f-args>})")
-vim.cmd("command! -nargs=1 TelegraphTmux lua require'waylonwalker.slides'.telegraph({cmd=<f-args>, how='tmux'})")
-vim.cmd("command! -nargs=1 TelegraphTmuxPopup lua require'waylonwalker.slides'.telegraph({cmd=<f-args>, how='tmux_popup'})")
-
--- vim.cmd("nnoremap <leader><leader>m :TelegraphTmuxPopup man ")
--- vim.cmd("nnoremap <leader><leader>S :TelegraphTmuxPopup pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark<cr>")
--- vim.cmd("nnoremap <leader><leader>s :TelegraphTmux pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark<cr>")
--- vim.cmd("command! -nargs=* Me lua require'waylonwalker.slides'.parse(<line1>, <line2>, <f-args>, <q-args>, <range>, <count>)")
-
+vim.cmd("command! -nargs=1 Telegraph lua require'telegraph'.telegraph({cmd=<f-args>})")
 
 M.setup = function(config)
     if not config then
