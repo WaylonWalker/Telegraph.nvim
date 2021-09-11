@@ -39,6 +39,11 @@ nnoremap <leader><leader>s :Telegraph pipx run --spec git+https://github.com/way
 nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --spec git+https://github.com/waylonwalker/lookatme lookatme {filepath} --live-reload --style gruvbox-dark', how='tmux_popup'})<CR>
 ```
 
+visidata
+
+https://user-images.githubusercontent.com/22648375/132959327-93afcb3a-b4b6-4c0b-8f29-a28950444d17.mp4
+
+
 ## how
 
 Telegraph 
