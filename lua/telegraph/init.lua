@@ -58,7 +58,7 @@ M.telegraph= function(config)
     local format_command = function(command_str)
         return (command_str
             :gsub("{filepath}", filepath)
-            :gsub("{parent}", _get_parent(filepath))
+            :gsub("{parent}", _get_parent(filepath) or '')
             :gsub("{filename}", filename)
             :gsub("{current_session_name}", current_session_name)
             :gsub("{cword}", vim.fn.expand"<cword>")
