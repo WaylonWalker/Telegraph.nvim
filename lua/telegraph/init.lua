@@ -58,7 +58,7 @@ M.telegraph= function(config)
     local format_command = function(command_str)
         return (command_str
             :gsub("{filepath}", filepath)
-            :gsub("{parent}", _get_parent(filepath) or '')
+            :gsub("{parent}", _get_parent(filepath))
             :gsub("{filename}", filename)
             :gsub("{current_session_name}", current_session_name)
             :gsub("{cword}", vim.fn.expand"<cword>")
@@ -82,6 +82,8 @@ M.telegraph= function(config)
         os.execute('tmux display-popup "tmux new-session -A -s ' .. session_name .. '"')
     elseif how == 'tmux_popup' or how == 'tmux-popup' then
         os.execute('tmux display-popup  -E ' .. command )
+    elseif how == 'execute' or how == 'subprocess' then
+        os.execute( command )
     else
         vim.cmd('term ' .. command)
         vim.cmd('startinsert')
