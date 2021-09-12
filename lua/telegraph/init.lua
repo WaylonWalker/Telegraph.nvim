@@ -64,6 +64,7 @@ M.telegraph= function(config)
             :gsub("{cword}", vim.fn.expand"<cword>")
             :gsub("{cWORD}", vim.fn.expand"<cWORD>")
             :gsub("{cwd}", vim.fn.getcwd())
+            :gsub("{cline}", vim.api.nvim_get_current_line())
             )
     end
 
