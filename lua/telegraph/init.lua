@@ -47,7 +47,7 @@ end)()
 
 
 M.telegraph= function(config)
-    local filepath = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) 
+    local filepath = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) or ''
     local filename = filepath:match("^.+/(.+)$")
     local current_session_name = M.get_session_name()
     config = config or {}
