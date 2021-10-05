@@ -53,14 +53,14 @@ Telegraph
 
 Telegraph will replace the following variables enclosed in braces.
 
-* cword
-* cWORD
-* filepath
-* filename
-* parent
-* current_session_name
-* cwd
-
+* `cword` - the current word under the cursor
+* `cWORD` - the current BIG Word under the cursor
+* `cline` - the current line under the cursor
+* `filepath` - the filepath of the current file
+* `filename` - the filename of the current file
+* `parent` - the parent directory of the current file
+* `current_session_name` - name of the current tmux session
+* `cwd` - the current working directory
 
 ```
 :Telegraph ls {parent}
