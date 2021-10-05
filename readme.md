@@ -44,10 +44,10 @@ nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --sp
 
 Telegraph 
 
-* **term**(default) runs command in the built in terminal
-* **tmux** runs command in a new tmux session and joins it.
-* **tmux_popup** runs command in a tmux popup window.
-* **tmux_popup_session** runs command in a tmux session and displays it in a popup
+* `term`(default) runs command in the built in terminal
+* `tmux` runs command in a new tmux session and joins it.
+* `tmux_popup` runs command in a tmux popup window.
+* `tmux_popup_session` runs command in a tmux session and displays it in a popup
 
 ## format strings
 
