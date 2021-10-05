@@ -16,7 +16,7 @@ line.
 ## Installation
 
 ``` vim
-Plug waylonwalker/Telegraph.nvim
+Plug 'waylonwalker/Telegraph.nvim'
 ```
 
 ## Example usage
