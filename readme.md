@@ -45,21 +45,24 @@ nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --sp
 Telegraph 
 
 * `term`(default) runs command in the built in terminal
+* `subprocess` runs the command in a lua subprocess
 * `tmux` runs command in a new tmux session and joins it.
 * `tmux_popup` runs command in a tmux popup window.
 * `tmux_popup_session` runs command in a tmux session and displays it in a popup
 * `subprocess` runs command in a subprocess
 
-
 ## format strings
 
 Telegraph will replace the following variables enclosed in braces.
 
+<<<<<<< HEAD
 * `cword` - the current word under the cursor
 * `cWORD` - the current BIG Word under the cursor
 * `cline` - the current line under the cursor
 * `filepath` - the filepath of the current file
 * `filename` - the filename of the current file
+* `file_extension` - the extension of the file (ex lua, py)
+* `file_basename` - the basename of the file (ie. filename without the extension)
 * `parent` - the parent directory of the current file
 * `current_session_name` - name of the current tmux session
 * `cwd` - the current working directory
