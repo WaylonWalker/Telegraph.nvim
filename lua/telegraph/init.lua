@@ -61,7 +61,7 @@ M.telegraph= function(config)
     local format_command = function(command_str)
         return (command_str
             :gsub("{filepath}", filepath)
-            :gsub("{file_extension}", file_extension)
+            :gsub("{file_extension}", string.sub(file_extension, 2)) -- do not include the leading .
             :gsub("{file_basename}", file_basename)
             :gsub("{filepath}", filepath)
             :gsub("{parent}", _get_parent(filepath))
