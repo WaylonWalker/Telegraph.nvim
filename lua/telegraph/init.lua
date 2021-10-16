@@ -49,6 +49,9 @@ end)()
 M.telegraph= function(config)
     local filepath = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) or ''
     local filename = filepath:match("^.+/(.+)$")
+    local file_extension = filepath:match("^.+(%..+)$")
+    local file_basename = filename:gsub(file_extension, "")
+
     local current_session_name = M.get_session_name()
     config = config or {}
     cmd = config.cmd or TelegraphConfig.cmd or default_config.cmd
@@ -57,6 +60,9 @@ M.telegraph= function(config)
     
     local format_command = function(command_str)
         return (command_str
+            :gsub("{filepath}", filepath)
+            :gsub("{file_extension}", file_extension)
+            :gsub("{file_basename}", file_basename)
             :gsub("{filepath}", filepath)
             :gsub("{parent}", _get_parent(filepath))
             :gsub("{filename}", filename)
