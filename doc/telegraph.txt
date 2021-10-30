@@ -1,5 +1,5 @@
 ================================================================================
-                                                                *telegraph.nvim*
+                                                               *telegraph.nvim*
 
 Telegraph.nvim provides a way to send command conveniently and bind them to
 hotkeys.
@@ -7,8 +7,8 @@ hotkeys.
 The telegraph command takes in two arguments how, and cmd.
 
 
-| telegraph.cmd | - the command to run with | telegraph.format-strings | replaced
-| telegraph.how | - how to run the command
+|telegraph.cmd| - the command to run with |telegraph.format-strings| replaced
+|telegraph.how| - how to run the command
 
 
                                                                 *telegraph.how*
