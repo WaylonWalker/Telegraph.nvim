@@ -42,7 +42,8 @@ nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --sp
 
 ## how
 
-Telegraph 
+Determines how the command should be ran. How may be set to any of the
+following terms.
 
 * `term`(default) runs command in the built in terminal
 * `subprocess` runs the command in a lua subprocess
@@ -55,7 +56,6 @@ Telegraph
 
 Telegraph will replace the following variables enclosed in braces.
 
-<<<<<<< HEAD
 * `cword` - the current word under the cursor
 * `cWORD` - the current BIG Word under the cursor
 * `cline` - the current line under the cursor
