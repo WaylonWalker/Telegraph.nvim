@@ -55,7 +55,6 @@ Telegraph
 
 Telegraph will replace the following variables enclosed in braces.
 
-<<<<<<< HEAD
 * `cword` - the current word under the cursor
 * `cWORD` - the current BIG Word under the cursor
 * `cline` - the current line under the cursor
