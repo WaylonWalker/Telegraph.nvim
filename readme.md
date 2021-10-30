@@ -42,7 +42,8 @@ nnoremap <leader><leader>S :lua require'telegraph'.telegraph({cmd='pipx run --sp
 
 ## how
 
-Telegraph 
+Determines how the command should be ran. How may be set to any of the
+following terms.
 
 * `term`(default) runs command in the built in terminal
 * `subprocess` runs the command in a lua subprocess
